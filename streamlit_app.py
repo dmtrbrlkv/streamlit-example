@@ -1,5 +1,4 @@
 import gdown
-import py7zr
 import streamlit as st
 from catboost import CatBoostRegressor
 
