@@ -3,13 +3,9 @@ import py7zr
 import streamlit as st
 from catboost import CatBoostRegressor
 
-url = 'https://drive.google.com/uc?id=1EMQBErDSVz9Ij8HQWOQSa5yVlHG3Lw8T'
-output = 'used-cars-catboost.model.7z'
+url = 'https://drive.google.com/uc?id=1wklHdPCrnsxyF9vb6XtdrcFAWC2qPZag'
+output = 'used-cars-catboost.model'
 gdown.download(url, output, quiet=False)
-
-archive = py7zr.SevenZipFile('used-cars-catboost.model.7z', mode='r')
-archive.extractall()
-archive.close()
 
 model = CatBoostRegressor()
 model.load_model('used-cars-catboost.model')
