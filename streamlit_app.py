@@ -19,8 +19,9 @@ with st.spinner('Подготовка модели...') as spinner:
 btn_features = st.button('Важность признаков')
 if btn_features:
     with st.spinner('Построение графика...'):
-        features = model.get_feature_importance(prettified=True).sort_values('Importances')
+        features = model.get_feature_importance(prettified=True)
         st.write(features)
+        features = features.sort_values('Importances')
         ax = features.plot.barh(x='Feature Id', y='Importances')
         st.pyplot(ax.figure)
     # st.success('Готово!')
