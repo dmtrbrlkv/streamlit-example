@@ -40,4 +40,7 @@ if btn_predict:
         year, make, model, trim, body, transmission, state, condition, odometer, color, interior, seller, saledate,
         model_cb
     )
-    st.write(f'Цена: {predict:.2f} $')
+    if predict > 0:
+        st.write(f'Цена: {predict:.2f} $')
+    else:
+        st.write('За этот автохлам придется доплатить, чтобы его забрали')
