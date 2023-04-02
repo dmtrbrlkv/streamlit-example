@@ -4,13 +4,16 @@ import streamlit as st
 from dateutil.utils import today
 
 from features_graph import features_graph
-from load_model import load_model
+from load_model import load_model, download_model
 from predict import predict
 
 st.title('Used car''s price prediction')
 
-with st.spinner('Подготовка модели...'):
-    model_cb = load_model()
+with st.spinner('Скачивание модели...'):
+    model_file = download_model()
+
+with st.spinner('Загрузка модели в память...'):
+    model_cb = load_model(model_file)
 
 btn_features = st.button('Важность признаков')
 
