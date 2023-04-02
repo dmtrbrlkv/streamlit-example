@@ -6,16 +6,12 @@ from catboost import CatBoostRegressor
 
 
 @st.cache_resource()
-def download_model():
-    output = 'used-cars.cdm'
-    if not os.path.exists(output):
+def load_model():
+    if not os.path.exists('used-cars.cdm'):
         url = 'https://drive.google.com/uc?id=13VwUzi_NrOwFlBjwB8p3tX8XQE9P34ZP'
+        output = 'used-cars.cdm'
         gdown.download(url, output, quiet=False)
-    return output
 
-
-@st.cache_resource()
-def load_model(model_file):
     model = CatBoostRegressor()
-    model.load_model(model_file)
+    model.load_model('used-cars.cdm')
     return model
