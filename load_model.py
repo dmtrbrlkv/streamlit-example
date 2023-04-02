@@ -5,7 +5,7 @@ import streamlit as st
 from catboost import CatBoostRegressor
 
 
-@st.cache_resource()
+@st.cache_resource(show_spinner='Скачивание модели')
 def download_model():
     output = 'used-cars.cdm'
     if not os.path.exists(output):
@@ -14,7 +14,7 @@ def download_model():
     return output
 
 
-@st.cache_data()
+@st.cache_data(show_spinner='Загрузка модели')
 def load_model(model_file):
     model = CatBoostRegressor()
     model.load_model(model_file)

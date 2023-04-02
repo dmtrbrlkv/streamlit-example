@@ -9,16 +9,13 @@ from predict import predict
 
 st.title('Used car''s price prediction')
 
-# with st.spinner('Скачивание модели...'):
 model_file = download_model()
-
-# with st.spinner('Загрузка модели в память...'):
-model_cb = load_model(model_file)
 
 btn_features = st.button('Важность признаков')
 
 if btn_features:
     with st.spinner('Построение графика...'):
+        model_cb = load_model(model_file)
         fig = features_graph(model_cb)
         st.pyplot(fig)
 
@@ -39,6 +36,7 @@ saledate = st.date_input('Sale date', value=date(2015, 2, 25))
 btn_predict = st.button('Предсказать')
 
 if btn_predict:
+    model_cb = load_model(model_file)
     predict = predict(
         year, make, model, trim, body, transmission, state, condition, odometer, color, interior, seller, saledate,
         model_cb
