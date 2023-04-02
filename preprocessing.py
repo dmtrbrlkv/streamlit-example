@@ -70,5 +70,9 @@ def preprocessing(df, features):
     df['model_body'] = df['model'] + df['body']
     df['model_trim_body'] = df['model'] + df['trim'] + df['body']
     df['make_model_trim_body'] = df['make'] + df['model'] + df['trim'] + df['body']
+    df['make_body'] = df['make'] + df['body']
+    df['make_trim'] = df['make'] + df['trim']
+    df['make_model_trim'] = df['make'] + df['model'] + df['trim']
+    df['make_model_body'] = df['make'] + df['model'] + df['body']
 
     return df[features]
