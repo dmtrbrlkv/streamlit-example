@@ -14,7 +14,7 @@ def download_model():
     return output
 
 
-@st.cache_resource()
+@st.cache_data()
 def load_model(model_file):
     model = CatBoostRegressor()
     model.load_model(model_file)

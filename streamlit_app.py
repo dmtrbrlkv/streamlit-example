@@ -9,11 +9,11 @@ from predict import predict
 
 st.title('Used car''s price prediction')
 
-with st.spinner('Скачивание модели...'):
-    model_file = download_model()
+# with st.spinner('Скачивание модели...'):
+model_file = download_model()
 
-with st.spinner('Загрузка модели в память...'):
-    model_cb = load_model(model_file)
+# with st.spinner('Загрузка модели в память...'):
+model_cb = load_model(model_file)
 
 btn_features = st.button('Важность признаков')
 
